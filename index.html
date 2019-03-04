@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Arizona Trivia</title>
 
-    <!-- Link CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
 
 
     <!-- Link jQuery -->
@@ -15,27 +15,128 @@
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
     <!--  -->
 
-    <!-- Link Bootstrap Scripts -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <!--  -->
 
-    
+    <!-- Link Google Fonts -->
+
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Permanent+Marker" rel="stylesheet">
+
+
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
 </head>
+
 <body>
-    
+    <div class="bg">
+        <div class="header">
+
+            <div id="az-flag-img">
+
+                <img src="assets/images/arizona-state-flag.png" alt="az-state-flag" width="150px" height="80px"></img>
+
+            </div>
 
 
-    
+            <h1>Arizona Trivia</h1>
+            <!-- <form><input type='radio' name='answer' value='answer1' id='answer1'> Answer1<br></form> -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="./assets/javascript/game.js"></script>
+
+
+        </div>
+
+        <div id="jQueryDiv">
+
+           
+
+
+
+
+        </div>
+
+
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+        <script type="text/javascript">
+
+            //Insert Questions Here
+
+            var question1 = "Question 1";
+            var question1Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
+
+            var question2 = "Question 2";
+            var question2Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
+
+            var question3 = "Question 3";
+            var question3Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
+
+            var question4 = "Question 4";
+            var question4Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
+
+            var question5 = "Question 5";
+            var question5Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
+
+            var question6 = "Question 6";
+            var question6Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
+
+            var question7 = "Question 7";
+            var question7Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
+
+            var question8 = "Question 8";
+            var question8Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
+
+
+            var question9 = "Question 9";
+            var question9Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
+
+            var question10 = "Question 10";
+            var question10Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
+
+
+
+            //Display Start Screen
+
+            $("#jQueryDiv").html(" <div id='playArea'> <h1>Test your knowledge of Arizona!</h1><button id='startButton'>Start!</button></div>");
+
+
+            //Start the game
+
+            $("#startButton").click(function () {
+
+
+
+                Math.floor(Math.random() * 10 + 1);  //random # between 1 and 10
+
+                $("#jQueryDiv").html(" <div id='playArea' > <h2>" + question1 + "</h2><form ><input type='radio' name='answer' value='answer1' class='answer1'> " + question1Answers[0] + "<br><input type='radio' name='answer' value='answer2' isCorrect='incorrect' id='answer2'> " + question1Answers[1] + "<br><input type='radio' name='answer' value='answer3' isCorrect='incorrect' id='answer3'> " + question1Answers[2] + "<br><input type='radio' name='answer' value='answer4' isCorrect='incorrect' id='answer4'> " + question1Answers[3] + "</form></div>");
+
+
+              //  $(("#jQueryDiv").createElement('<div>')).attr('id','playArea');
+
+                //$("#playArea").html("<h2>" + question1 + "</h2>")    
+
+                // " <div id='playArea' > <h2>" + question1 + "</h2><form ><input type='radio' name='answer' value='answer1' class='answer1'> " + question1Answers[0] + "<br><input type='radio' name='answer' value='answer2' isCorrect='incorrect' id='answer2'> " + question1Answers[1] + "<br><input type='radio' name='answer' value='answer3' isCorrect='incorrect' id='answer3'> " + question1Answers[2] + "<br><input type='radio' name='answer' value='answer4' isCorrect='incorrect' id='answer4'> " + question1Answers[3] + "</form></div>");
+
+                //$("input").attr("id","answer");
+                //console.log($("#playArea").attr());
+
+            });
+
+            $(".answer").click(function () {
+
+
+                alert("answer1");
+
+
+
+            });
+
+
+        </script>
+
+
+    </div>
 </body>
+
 </html>

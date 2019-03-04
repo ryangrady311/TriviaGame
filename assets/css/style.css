@@ -1,0 +1,87 @@
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .bg {
+    /* The image used */
+    background-image: url("../images/Cadence-Tucson-AZ-cactus-downtown-Tucson-skyline.jpg");
+  
+    /* Full height */
+    height: 100%; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .header{
+
+    text-align: center;
+    background-color:rgba(226, 136, 17, 0.8);
+    /* padding-bottom: 1px; */
+    /* padding-top: 1px; */
+    color: blue;
+    -webkit-text-stroke: 1px black;
+    font-size: 24pt;
+    font-family: 'Permanent Marker', cursive;
+    position: relative;
+    min-width: 800px;
+
+
+   
+  }
+
+  #az-flag-img{
+    position: absolute;
+  
+    left: 10px;
+    top:7px;
+  
+  
+
+
+  }
+
+#playArea {
+
+
+  min-width: 500px;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 100px;
+  margin-bottom: 20%;
+  text-align: center;
+  height: 40%;
+  min-height: 300px;
+  border: solid 2px black;
+  
+  
+  background-color:rgba(24, 160, 194, 0.9);
+  position: relative;
+}
+
+#startButton{
+
+  margin-top: 30px;
+  height: 30px;
+  width: 100px;
+  font-size: 16pt;
+
+}
+
+form{
+text-align: left;
+padding-left: 40px;
+font-size: 16pt;
+
+}
+
+div {
+  word-wrap: break-word;
+}
+
+* {
+  box-sizing: border-box;
+}
