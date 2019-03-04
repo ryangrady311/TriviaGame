@@ -47,7 +47,7 @@
 
         <div id="jQueryDiv">
 
-           
+
 
 
 
@@ -63,36 +63,14 @@
 
             //Insert Questions Here
 
-            var question1 = "Question 1";
-            var question1Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
+            var triviaQuestions = [{ question: "Question 1", answer1: "Answer 1", answer2: "Answer 2", answer3: "Answer 3", answer4: "Answer 4", correctAnswer: 1 }, { question: "Question 2", answer1: "Answer 1", answer2: "Answer 2", answer3: "Answer 3", answer4: "Answer 4", correctAnswer: 2 }, { question: "Question 3", answer1: "Answer 1", answer2: "Answer 2", answer3: "Answer 3", answer4: "Answer 4", correctAnswer: 3 }, { question: "Question 4", answer1: "Answer 1", answer2: "Answer 2", answer3: "Answer 3", answer4: "Answer 4", correctAnswer: 4 }, { question: "Question 5", answer1: "Answer 1", answer2: "Answer 2", answer3: "Answer 3", answer4: "Answer 4", correctAnswer: 1 }];
 
-            var question2 = "Question 2";
-            var question2Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
+            var questionNumber = 0;
 
-            var question3 = "Question 3";
-            var question3Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
+            var totalCorrect = 0;
 
-            var question4 = "Question 4";
-            var question4Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
+            var totalIncorrect = 0;
 
-            var question5 = "Question 5";
-            var question5Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
-
-            var question6 = "Question 6";
-            var question6Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
-
-            var question7 = "Question 7";
-            var question7Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
-
-            var question8 = "Question 8";
-            var question8Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
-
-
-            var question9 = "Question 9";
-            var question9Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
-
-            var question10 = "Question 10";
-            var question10Answers = ["Answer 1", "Answer 2", "Answer 3", "Answer 4"];
 
 
 
@@ -109,29 +87,135 @@
 
                 Math.floor(Math.random() * 10 + 1);  //random # between 1 and 10
 
-                $("#jQueryDiv").html(" <div id='playArea' > <h2>" + question1 + "</h2><form ><input type='radio' name='answer' value='answer1' class='answer1'> " + question1Answers[0] + "<br><input type='radio' name='answer' value='answer2' isCorrect='incorrect' id='answer2'> " + question1Answers[1] + "<br><input type='radio' name='answer' value='answer3' isCorrect='incorrect' id='answer3'> " + question1Answers[2] + "<br><input type='radio' name='answer' value='answer4' isCorrect='incorrect' id='answer4'> " + question1Answers[3] + "</form></div>");
+
+                //Initialize the first question
+
+                $("#jQueryDiv").html(" <div id='playArea' > <h2>" + triviaQuestions[questionNumber].question + "</h2><form ><input type='radio' name='answer' value='answer1' id='answer1'> <p1>" + triviaQuestions[questionNumber].answer1 + "</p1><br><input type='radio' name='answer' value='answer2' isCorrect='incorrect' id='answer2'> <p2>" + triviaQuestions[questionNumber].answer2 + "</p2><br><input type='radio' name='answer' value='answer3' isCorrect='incorrect' id='answer3'> <p3>" + triviaQuestions[questionNumber].answer3 + "</p3><br><input type='radio' name='answer' value='answer4' isCorrect='incorrect' id='answer4'> <p4>" + triviaQuestions[questionNumber].answer4 + "</p4></form></div>");
+
+                initalizeQuestion();
 
 
-              //  $(("#jQueryDiv").createElement('<div>')).attr('id','playArea');
+                $("#answer1").click(function () {
 
-                //$("#playArea").html("<h2>" + question1 + "</h2>")    
+                    if (triviaQuestions[questionNumber].correctAnswer == 1) {
 
-                // " <div id='playArea' > <h2>" + question1 + "</h2><form ><input type='radio' name='answer' value='answer1' class='answer1'> " + question1Answers[0] + "<br><input type='radio' name='answer' value='answer2' isCorrect='incorrect' id='answer2'> " + question1Answers[1] + "<br><input type='radio' name='answer' value='answer3' isCorrect='incorrect' id='answer3'> " + question1Answers[2] + "<br><input type='radio' name='answer' value='answer4' isCorrect='incorrect' id='answer4'> " + question1Answers[3] + "</form></div>");
+                        totalCorrect = totalCorrect + 1;
+                    }
 
-                //$("input").attr("id","answer");
-                //console.log($("#playArea").attr());
+                    else {
+                        totalIncorrect = totalIncorrect + 1;
 
+                    }
+
+                    updateQuestion();
+
+
+
+                });
+
+                $("#answer2").click(function () {
+
+                    if (triviaQuestions[questionNumber].correctAnswer == 2) {
+
+                        totalCorrect = totalCorrect + 1;
+                    }
+
+                    else {
+                        totalIncorrect = totalIncorrect + 1;
+
+                    }
+
+
+
+                    updateQuestion();
+
+                });
+
+                $("#answer3").click(function () {
+
+                    if (triviaQuestions[questionNumber].correctAnswer == 3) {
+
+                        totalCorrect = totalCorrect + 1;
+                    }
+
+                    else {
+                        totalIncorrect = totalIncorrect + 1;
+
+                    }
+
+                    updateQuestion();
+
+                });
+
+                $("#answer4").click(function () {
+
+                    if (triviaQuestions[questionNumber].correctAnswer == 4) {
+
+                        totalCorrect = totalCorrect + 1;
+                    }
+
+                    else {
+                        totalIncorrect = totalIncorrect + 1;
+
+                    }
+                    updateQuestion();
+
+
+                });
+
+
+
+                console.log(questionNumber);
+                //  setTimeout(function(){ $("#jQueryDiv").html(" <div id='playArea'> <h1>Test your knowledge of Arizona!</h1><button id='startButton'>Start!</button></div>"); }, 3000);    
+
+                return;
             });
 
-            $(".answer").click(function () {
+
+            function initalizeQuestion() {
 
 
-                alert("answer1");
+
+
+                $("h2").text(triviaQuestions[questionNumber].question);
+
+                $("p1").text(triviaQuestions[questionNumber].answer1);
+                $("p2").text(triviaQuestions[questionNumber].answer2);
+                $("p3").text(triviaQuestions[questionNumber].answer3);
+                $("p4").text(triviaQuestions[questionNumber].answer4);
+
+                //console.log(triviaQuestions[questionNumber].answers[0].correctAnswer)
+            }
 
 
 
-            });
 
+
+            function updateQuestion() {
+
+
+                if (questionNumber < triviaQuestions.length - 1) {
+                    questionNumber = questionNumber + 1;
+
+                    $("h2").text(triviaQuestions[questionNumber].question);
+                    $("p1").text(triviaQuestions[questionNumber].answer1);
+                    $("p2").text(triviaQuestions[questionNumber].answer2);
+                    $("p3").text(triviaQuestions[questionNumber].answer3);
+                    $("p4").text(triviaQuestions[questionNumber].answer4);
+                    
+
+                }
+
+                else {
+
+                    $("#jQueryDiv").html(" <div id='playArea' > <h2> End of Game</h2>");
+
+
+                }
+
+                console.log(totalCorrect);
+                console.log(totalIncorrect);
+            }
 
         </script>
 
