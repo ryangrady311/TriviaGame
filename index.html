@@ -41,10 +41,12 @@
             <h1>Arizona Trivia</h1>
             <!-- <form><input type='radio' name='answer' value='answer1' id='answer1'> Answer1<br></form> -->
 
+            
 
 
         </div>
-
+        
+        <p id="timer"></p>
         <div id="jQueryDiv">
 
 
@@ -61,9 +63,11 @@
 
         <script type="text/javascript">
 
-            //Insert Questions Here
+            //Insert Questions Here///////////////////////
 
-            var triviaQuestions = [{ question: "Question 1", answer1: "Answer 1", answer2: "Answer 2", answer3: "Answer 3", answer4: "Answer 4", correctAnswer: 1 }, { question: "Question 2", answer1: "Answer 1", answer2: "Answer 2", answer3: "Answer 3", answer4: "Answer 4", correctAnswer: 2 }, { question: "Question 3", answer1: "Answer 1", answer2: "Answer 2", answer3: "Answer 3", answer4: "Answer 4", correctAnswer: 3 }, { question: "Question 4", answer1: "Answer 1", answer2: "Answer 2", answer3: "Answer 3", answer4: "Answer 4", correctAnswer: 4 }, { question: "Question 5", answer1: "Answer 1", answer2: "Answer 2", answer3: "Answer 3", answer4: "Answer 4", correctAnswer: 1 }];
+            var triviaQuestions = [{ question: "When did Arizona become a state?", answer: ["November 5, 1882", "July 4, 1776", "February 14, 1912", "April 15, 1902"], correctAnswer: 2 }, { question: "Arizona's 5 C's are Copper, Cattle, Cotton, Climate, and ______?", answer: ["Candy", "Citrus", "Camping", "Cars"], correctAnswer: 1 }, { question: "The Arizona State Capitol used to be in which of the following cities", answer: ["Payson", "Flagstaff", "Prescott", "Scottsdale"], correctAnswer: 2 }, { question: "Which desert lies in Southern Arizona?", answer: ["The Sonoran Desert", "The Sahara Desert", "The Great Sandy Desert", "The Gobi Desert"], correctAnswer: 0 }, { question: "How deep is the Grand Canyon?", answer: ["10,063ft", "200ft", "2,050ft", "6,093ft"], correctAnswer: 3 }];
+
+            ////////////////////////////////////////////
 
             var questionNumber = 0;
 
@@ -71,8 +75,11 @@
 
             var totalIncorrect = 0;
 
+            var myTimerCount=10;
 
+            var answerSelected = false;
 
+            var endofgame = false;
 
             //Display Start Screen
 
@@ -83,6 +90,9 @@
 
             $("#startButton").click(function () {
 
+                document.getElementById("timer").innerHTML = "Remaining Time: 10";
+                var myVar = setInterval(myTimer, 1000);
+
 
 
                 Math.floor(Math.random() * 10 + 1);  //random # between 1 and 10
@@ -90,24 +100,28 @@
 
                 //Initialize the first question
 
-                $("#jQueryDiv").html(" <div id='playArea' > <h2>" + triviaQuestions[questionNumber].question + "</h2><form ><input type='radio' name='answer' value='answer1' id='answer1'> <p1>" + triviaQuestions[questionNumber].answer1 + "</p1><br><input type='radio' name='answer' value='answer2' isCorrect='incorrect' id='answer2'> <p2>" + triviaQuestions[questionNumber].answer2 + "</p2><br><input type='radio' name='answer' value='answer3' isCorrect='incorrect' id='answer3'> <p3>" + triviaQuestions[questionNumber].answer3 + "</p3><br><input type='radio' name='answer' value='answer4' isCorrect='incorrect' id='answer4'> <p4>" + triviaQuestions[questionNumber].answer4 + "</p4></form></div>");
+                $("#jQueryDiv").html(" <div id='playArea' > <h2>" + triviaQuestions[questionNumber].question + "</h2><form ><input type='radio' name='answer' value='answer1' id='answer1'> <p1>" + triviaQuestions[questionNumber].answer[0] + "</p1><br><input type='radio' name='answer' value='answer2' isCorrect='incorrect' id='answer2'> <p2>" + triviaQuestions[questionNumber].answer[1] + "</p2><br><input type='radio' name='answer' value='answer3' isCorrect='incorrect' id='answer3'> <p3>" + triviaQuestions[questionNumber].answer[2] + "</p3><br><input type='radio' name='answer' value='answer4' isCorrect='incorrect' id='answer4'> <p4>" + triviaQuestions[questionNumber].answer[3] + "</p4></form></div>");
 
                 initalizeQuestion();
 
 
                 $("#answer1").click(function () {
 
-                    if (triviaQuestions[questionNumber].correctAnswer == 1) {
+                    // if (triviaQuestions[questionNumber].correctAnswer == 1) {
 
-                        totalCorrect = totalCorrect + 1;
-                    }
+                    //     totalCorrect = totalCorrect + 1;
+                    // }
 
-                    else {
-                        totalIncorrect = totalIncorrect + 1;
+                    // else {
+                    //     totalIncorrect = totalIncorrect + 1;
 
-                    }
+                    // }
+                    answerSelected = true;
+                    
+                    var windowTimeout = setTimeout(function () {
+                        updateQuestion()
+                    }, 3000);
 
-                    updateQuestion();
 
 
 
@@ -115,50 +129,57 @@
 
                 $("#answer2").click(function () {
 
-                    if (triviaQuestions[questionNumber].correctAnswer == 2) {
+                    // if (triviaQuestions[questionNumber].correctAnswer == 2) {
 
-                        totalCorrect = totalCorrect + 1;
-                    }
+                    //     totalCorrect = totalCorrect + 1;
+                    // }
 
-                    else {
-                        totalIncorrect = totalIncorrect + 1;
+                    // else {
+                    //     totalIncorrect = totalIncorrect + 1;
 
-                    }
+                    // }
 
 
 
-                    updateQuestion();
+                    var windowTimeout = setTimeout(function () {
+                        updateQuestion()
+                    }, 1000);
 
                 });
 
                 $("#answer3").click(function () {
 
-                    if (triviaQuestions[questionNumber].correctAnswer == 3) {
+                    // if (triviaQuestions[questionNumber].correctAnswer == 3) {
 
-                        totalCorrect = totalCorrect + 1;
-                    }
+                    //     totalCorrect = totalCorrect + 1;
+                    // }
 
-                    else {
-                        totalIncorrect = totalIncorrect + 1;
+                    // else {
+                    //     totalIncorrect = totalIncorrect + 1;
 
-                    }
-
-                    updateQuestion();
+                    // }
+                    
+            
+                    var windowTimeout = setTimeout(function () {
+                        updateQuestion()
+                    }, 1000);
 
                 });
 
                 $("#answer4").click(function () {
 
-                    if (triviaQuestions[questionNumber].correctAnswer == 4) {
+                    // if (triviaQuestions[questionNumber].correctAnswer == 4) {
 
-                        totalCorrect = totalCorrect + 1;
-                    }
+                    //     totalCorrect = totalCorrect + 1;
+                    // }
 
-                    else {
-                        totalIncorrect = totalIncorrect + 1;
+                    // else {
+                    //     totalIncorrect = totalIncorrect + 1;
 
-                    }
-                    updateQuestion();
+                    // }
+                    var windowTimeout = setTimeout(function () {
+                        updateQuestion()
+                    }, 1000);
 
 
                 });
@@ -179,10 +200,10 @@
 
                 $("h2").text(triviaQuestions[questionNumber].question);
 
-                $("p1").text(triviaQuestions[questionNumber].answer1);
-                $("p2").text(triviaQuestions[questionNumber].answer2);
-                $("p3").text(triviaQuestions[questionNumber].answer3);
-                $("p4").text(triviaQuestions[questionNumber].answer4);
+                $("p1").text(triviaQuestions[questionNumber].answer[0]);
+                $("p2").text(triviaQuestions[questionNumber].answer[1]);
+                $("p3").text(triviaQuestions[questionNumber].answer[2]);
+                $("p4").text(triviaQuestions[questionNumber].answer[3]);
 
                 //console.log(triviaQuestions[questionNumber].answers[0].correctAnswer)
             }
@@ -194,27 +215,58 @@
             function updateQuestion() {
 
 
+                $("input[type=radio]").prop('checked', false);
+
                 if (questionNumber < triviaQuestions.length - 1) {
                     questionNumber = questionNumber + 1;
 
                     $("h2").text(triviaQuestions[questionNumber].question);
-                    $("p1").text(triviaQuestions[questionNumber].answer1);
-                    $("p2").text(triviaQuestions[questionNumber].answer2);
-                    $("p3").text(triviaQuestions[questionNumber].answer3);
-                    $("p4").text(triviaQuestions[questionNumber].answer4);
-                    
+                    $("p1").text(triviaQuestions[questionNumber].answer[0]);
+                    $("p2").text(triviaQuestions[questionNumber].answer[1]);
+                    $("p3").text(triviaQuestions[questionNumber].answer[2]);
+                    $("p4").text(triviaQuestions[questionNumber].answer[3]);
+
+                    console.log(questionNumber);
+                    console.log(triviaQuestions[questionNumber].answer[0]);
 
                 }
 
                 else {
 
                     $("#jQueryDiv").html(" <div id='playArea' > <h2> End of Game</h2>");
+                    endofgame = true;
+                   
 
 
                 }
-
+                answerSelected = false;
                 console.log(totalCorrect);
                 console.log(totalIncorrect);
+            }
+
+            function myTimer() {
+
+                if (endofgame == true){
+
+                    document.getElementById("timer").innerHTML = "";
+                }
+                
+                else if (answerSelected == true){
+                    myTimerCount = 11;   
+                    document.getElementById("timer").innerHTML = "Remaining Time: ";
+
+                }
+
+                else if (myTimerCount>0){
+                myTimerCount = myTimerCount-1;
+                document.getElementById("timer").innerHTML = "Remaining Time: "+myTimerCount;
+                }
+                else if (answerSelected ==false){
+                    updateQuestion();
+                    myTimerCount = 10;
+                    document.getElementById("timer").innerHTML = "Remaining Time: "+myTimerCount;
+                }
+                
             }
 
         </script>
