@@ -83,6 +83,7 @@ body, html {
   height: 30px;
   width: 100px;
   font-size: 16pt;
+  background-color: lightgray;
 
 }
 
@@ -120,20 +121,63 @@ text-shadow: 1px 1px black;
 
 #timer{
 
-  Position: absolute;
+  Position: relative;
   right: 3%;
-  top:100px;
 color: white;
 font-size: 18pt;
 text-shadow: 1px 1px black;
+text-align: center;
+text-shadow: 1px 1px black;
+margin-bottom: 0px;
 }
 #az-flag-img{
   display: none;
 
-
-
-
 }
+
+#jQueryDiv {
+
+
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  margin-bottom: 20%;
+  text-align: center;
+  height: 40%;
+  min-height: 300px;
+  color:white;
+  font-weight: bold;
+  /* -webkit-text-stroke: 1px white; */
+  /* border: solid 2px black; */
+  
+  /* background-color:rgba(17, 68, 83, 0.63); */
+  /* background-color:rgba(24, 160, 194, 0.9); */
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-shadow: 2px 2px black;
+}
+
+.header{
+
+  text-align: center;
+  background-color:rgba(226, 136, 17, 0.8);
+  /* padding-bottom: 1px; */
+  /* padding-top: 1px; */
+  color: blue;
+  -webkit-text-stroke: 1px black;
+  font-size: 16pt;
+  font-family: 'Permanent Marker', cursive;
+  position: relative;
+  /* min-width: 800px; */
+
+
+ 
+}
+
+
+
 
 
 }
